@@ -1,0 +1,39 @@
+﻿@model Client
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class = "row pb-2">
+            <h2 class="text-primary">Create Client</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label asp-for="name">Name</label>
+            <input asp-for="name" class="form-control"/>
+            <span asp-validation-for="name"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="clientDebt">Client Debt</label>
+            <input asp-for="clientDebt" class="form-control"/>
+            <span asp-validation-for="clientDebt"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="paymentDay">Client Payment Day</label>
+            <input asp-for="paymentDay" class="form-control" />
+            <span asp-validation-for="paymentDay"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Description">Description</label>
+            <input asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description"></span>
+        </div>
+        
+        <button type="submit" class="btn btn-primary" style="width:150px">Create</button>
+        <a asp-asp-controller="Client" asp-action="Index" class="btn btn-secondary">Back To List</a>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Client>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<a asp-controller="Client" asp-action="create" class="btn btn-primary mt-3">Create Client</a>
+
+<table class="table table-bordered table-striped mt-3">
+    <thead>
+        <tr>
+            <th>Client Name</th>
+            <th>Client Debt</th>
+            <th>Client Payment Day</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in Model)
+        {
+            <tr>
+                <td>@obj.name</td>
+                <td>@obj.clientDebt</td>
+                <td>@obj.paymentDay.ToString().Split(" ")[0]</td>
+                <td><a asp-controller="Client" asp-action="Edit" asp-route-id="@obj.id" class="btn btn-secondary">Edit</a></td>
+                <td><a asp-controller="Client" asp-action="Delete" asp-route-id="@obj.id" class="btn btn-danger">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
